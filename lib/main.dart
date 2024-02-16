@@ -4,149 +4,83 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text(
-            "Kamalova kamilla",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Container(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.all(40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: const Color.fromARGB(255, 118, 29, 2),
-                      primary: const Color.fromARGB(255, 112, 31, 6),
-                      fixedSize: Size(100, 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text("kama", style: TextStyle(color: Colors.white)),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: Colors.black,
-                      primary: Colors.blue,
-                      fixedSize: Size(100, 40),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 5,
-                    ),
-                    onPressed: () {},
-                    child: Text("Button", style: TextStyle(color: Colors.white)),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: Colors.black,
-                      primary: Colors.blue,
-                      fixedSize: Size(100, 40),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 5,
-                    ),
-                    onPressed: () {},
-                    child: Text("Button", style: TextStyle(color: Colors.white)),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.add_to_drive_rounded),
-                    label: Text(
-                      "Data",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: Colors.black,
-                      primary: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 5,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shadowColor: Colors.black,
-                          primary: Colors.blue,
-                          fixedSize: Size(100, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          elevation: 5,
-                        ),
-                        onPressed: () {},
-                        child: Text("Button", style: TextStyle(color: Colors.white)),
-                      ),
-                      SizedBox(width: 70),
-                      Text(
-                        "Hello world!\nHello world!",
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Text("Hello World! This is a Text Widget!",
-                      style: TextStyle(
-                        color: Colors.purple,
-                        backgroundColor: Colors.yellowAccent,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.italic,
-                        letterSpacing: 8,
-                        shadows: [
-                          Shadow(
-                            color: Colors.grey,
-                            offset: Offset(2.0, 2.0),
-                            blurRadius: 3.0,
-                          )
-                        ],
-                      )),
-                 IconButton(
-              icon: Icon(Icons.volume_up),
-              tooltip: 'Text Speaker',
-              onPressed: () {
-            
-              },
-            ),
-            Text('Text Speaker'),
-          ],
+      title: 'Kamalova',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'kamalova'),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: <Widget>[
+          Container(
+            color: Colors.blue,
+            width: double.infinity,
+            padding: EdgeInsets.all(20),
+            child: Text(
+              this.title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
-        ),
+          SizedBox(height: 20),
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Button'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Button'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Button'),
+                ),
+                SizedBox(height: 20),
+                IconButton(
+                  icon: Icon(Icons.data_usage),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
